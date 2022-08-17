@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "707219410921",
+    "firebase_url": "https://mm-vendor.firebaseio.com",
+    "project_id": "mm-vendor",
+    "storage_bucket": "mm-vendor.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:707219410921:android:720bbbd1466b0156",
+        "android_client_info": {
+          "package_name": "com.matrimonymandaps.vendor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "707219410921-ht8aj1i25mei64op1hqog5mv55vq18s3.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "707219410921-ht8aj1i25mei64op1hqog5mv55vq18s3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhevSyOo7QtWmN123MX3kSZapWs6JUvB8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="MainViewModel"
+            type="com.matrimonymandaps.vendor.ui.viewmodel.MainViewModel" />
+    </data>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/main_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.view.MainActivity">
+
+   <!-- app:refreshing="@{webViewModel.progressVisible}"
+    app:onRefreshListener="@{() -> webViewModel.onrefreshListener()}"-->
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        app:refreshing="@{MainViewModel.swipeRefresh}"
+        app:onRefreshListener="@{() -> MainViewModel.onrefreshListener()}"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+       <!-- app:loadUrl="@{webViewModel.webViewUrl}"-->
+        <WebView
+            android:id="@+id/webview_dashboard"
+            android:layout_width="match_parent"
+            app:setWebViewClient="@{MainViewModel.webViewClient}"
+            app:setWebViewSettings="@{MainViewModel.webViewSetting}"
+            app:loadUrl="@{MainViewModel.webViewUrl}"
+            app:goBack="@{MainViewModel.goBack}"
+            app:reLoad="@{MainViewModel.reload}"
+            app:canGoBack="@{MainViewModel.canGoBack}"
+            android:layout_height="match_parent" />
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:indeterminate="true"
+
+        android:visibility="@{MainViewModel.progressVisible?View.VISIBLE:View.GONE}"
+        app:layout_constraintBottom_toTopOf="@+id/swipe_refresh_main"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.45" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

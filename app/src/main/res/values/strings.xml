@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">MandapPartner</string>
+    <string name="google_api_key">AIzaSyCalD8wTzePJVtokqpodygwd6H_njVGyiU</string>
+    <string name="login_note">Note: This app is for internal use of mandap.com partner</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="otp">OTP- One Time Password</string>
+    <string name="send_otp">Send OTP</string>
+    <string name="verify_otp">Verify OTP</string>
+    <string name="edit_ok">OK</string>
+    <string name="later_text">Later</string>
+    <string name="clear">Clear</string>
+    <string name="resend_otp">Resend OTP</string>
+    <string name="toast_verified">Verified Phone Number</string>
+    <string name="toast_unverified">Unverified Phone Number</string>
+    <string name="venue_partner">Venue Partner</string>
+    <string name="otp_verification">OTP Verification</string>
+    <string name="change">Change</string>
+    <string name="verify_proceed">Verify and Proceed</string>
+    <string name="otp_msg">Didn\'t receive OTP message ?</string>
+    <string name="otp_success">OTP verified successfully</string>
+    <string name="get_otp">Get OTP</string>
+    <string name="otp_ques">Enter the OTP sent to</string>
+    <string name="sign_in">Sign In</string>
+    <string name="network_error">Please switch ON your internet connection &amp; try again</string>
+</resources>

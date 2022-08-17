@@ -1,0 +1,630 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="loginViewModel"
+            type="com.matrimonymandaps.vendor.ui.viewmodel.LoginViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint_root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/rl_bg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:visibility="@{loginViewModel.isVisibleSuccess()?View.GONE:View.VISIBLE}">
+
+                    <ImageView
+                        android:id="@+id/myImageView"
+                        android:layout_width="match_parent"
+                        android:layout_height="190dp"
+                        android:layout_marginBottom="@dimen/margin_vhigh"
+                        android:background="@drawable/image_login_bg"
+                        android:contentDescription="@string/app_name"
+                        android:gravity="center_horizontal" />
+
+                    <TextView
+                        android:id="@+id/myImageViewText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@id/myImageView"
+                        android:layout_alignTop="@id/myImageView"
+                        android:layout_alignRight="@id/myImageView"
+                        android:layout_alignBottom="@id/myImageView"
+                        android:layout_marginBottom="@dimen/large_margin"
+                        android:fontFamily="@font/nunitosans_bold"
+                        android:gravity="center"
+                        android:text="@string/venue_partner"
+                        android:textColor="@color/color_white"
+                        android:textSize="@dimen/semi_large"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/rl_success_bg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:visibility="@{loginViewModel.isVisibleSuccess()?View.VISIBLE:View.GONE}">
+
+                    <ImageView
+                        android:id="@+id/myImageView2"
+                        android:layout_width="match_parent"
+                        android:layout_height="190dp"
+                        android:layout_marginBottom="@dimen/margin_vhigh"
+                        android:background="@drawable/success_otp"
+                        android:contentDescription="@string/app_name"
+                        android:gravity="center_horizontal" />
+
+                    <TextView
+                        android:id="@+id/myImageViewText2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@id/myImageView2"
+                        android:layout_alignTop="@id/myImageView2"
+                        android:layout_alignRight="@id/myImageView2"
+                        android:layout_alignBottom="@id/myImageView2"
+                        android:fontFamily="@font/nunitosans_bold"
+                        android:gravity="center"
+                        android:text="@string/venue_partner"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/semi_large"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+                <!--<LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/login_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/margin_vhigh"
+                        android:background="@drawable/image_login_bg"
+                        android:contentDescription="@string/app_name"
+                        android:gravity="center_horizontal" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+
+                </LinearLayout>-->
+
+
+                <LinearLayout
+                    android:id="@+id/ll_success_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="230dp"
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:layout_marginTop="@dimen/thirty_five"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:orientation="vertical"
+                    android:visibility="@{loginViewModel.isVisibleSuccess()?View.VISIBLE:View.GONE}">
+
+                    <TextView
+                        android:id="@+id/tv_success_msg"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nunitosans_bold"
+                        android:gravity="center_horizontal|center_vertical"
+                        android:text="Welcome back! "
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/textView11"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableRight="@drawable/ic_tick"
+                        android:drawablePadding="@dimen/ten_dp"
+                        android:fontFamily="@font/nunitosans_bold"
+                        android:gravity="center_horizontal|center_vertical"
+                        android:text="@string/otp_success"
+                        android:textColor="@color/green"
+                        android:textSize="@dimen/text_size" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/ll_otp_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_medium"
+                    android:layout_marginLeft="@dimen/margin_medium"
+                    android:layout_marginTop="@dimen/twenty_five"
+                    android:layout_marginEnd="@dimen/margin_medium"
+                    android:layout_marginRight="@dimen/margin_medium"
+                    android:layout_marginBottom="@dimen/margin_medium"
+                    android:orientation="vertical"
+                    android:padding="@dimen/margin_high"
+                    android:visibility="@{loginViewModel.isVisible()?View.VISIBLE : View.GONE}">
+
+                    <TextView
+                        android:id="@+id/textView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nunitosans_bold"
+                        android:text="@string/otp_verification"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/five_dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tv_phone_number"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0"
+                            android:fontFamily="@font/notosans_regular"
+                            android:text="@{loginViewModel.tvPhoneNumberText}"
+                            android:textSize="@dimen/thirteen_sp" />
+
+                        <TextView
+                            android:id="@+id/tv_change"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/five_dp"
+                            android:layout_marginLeft="@dimen/five_dp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/notosans_regular"
+                            android:onClick="@{(view) -> loginViewModel.onClickNumberChange()}"
+                            android:text="@string/change"
+                            android:textColor="@color/blue"
+                            android:textSize="@dimen/thirteen_sp" />
+                    </LinearLayout>
+
+                    <com.matrimonymandaps.vendor.widget.EditTextPin
+                        android:id="@+id/et_otptext"
+                        android:layout_width="wrap_content"
+                        android:layout_marginTop="@dimen/twenty_dp"
+                        android:layout_height="wrap_content"/>
+
+                    <!--  <LinearLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_marginTop="@dimen/twenty_dp"
+                       android:orientation="horizontal">
+
+
+
+                       <androidx.appcompat.widget.AppCompatEditText
+                                android:id="@+id/tv_otp1"
+                                android:layout_width="@dimen/fourty_dp"
+                                android:layout_height="@dimen/fifty_dp"
+                                android:layout_margin="@dimen/five_dp"
+                                android:background="@drawable/rounded_txt"
+                                android:gravity="center"
+                                android:imeOptions="actionNext"
+                                android:inputType="number"
+                                android:maxLength="1" />
+
+                            <androidx.appcompat.widget.AppCompatEditText
+                                android:id="@+id/tv_otp2"
+                                android:layout_width="@dimen/fourty_dp"
+                                android:layout_height="@dimen/fifty_dp"
+                                android:layout_marginStart="@dimen/ten_dp"
+                                android:layout_marginLeft="@dimen/ten_dp"
+                                android:layout_marginTop="@dimen/five_dp"
+                                android:layout_marginEnd="@dimen/five_dp"
+                                android:layout_marginRight="@dimen/five_dp"
+                                android:layout_marginBottom="@dimen/five_dp"
+                                android:background="@drawable/rounded_txt"
+                                android:gravity="center"
+                                android:imeOptions="actionNext"
+                                android:inputType="number"
+                                android:maxLength="1" />
+
+                            <androidx.appcompat.widget.AppCompatEditText
+                                android:id="@+id/tv_otp3"
+                                android:layout_width="@dimen/fourty_dp"
+                                android:layout_height="@dimen/fifty_dp"
+                                android:layout_marginStart="@dimen/ten_dp"
+                                android:layout_marginLeft="@dimen/ten_dp"
+                                android:layout_marginTop="@dimen/five_dp"
+                                android:layout_marginEnd="@dimen/five_dp"
+                                android:layout_marginRight="@dimen/five_dp"
+                                android:layout_marginBottom="@dimen/five_dp"
+                                android:background="@drawable/rounded_txt"
+                                android:gravity="center"
+                                android:imeOptions="actionNext"
+                                android:inputType="number"
+                                android:maxLength="1" />
+
+                            <androidx.appcompat.widget.AppCompatEditText
+                                android:id="@+id/tv_otp4"
+                                android:layout_width="@dimen/fourty_dp"
+                                android:layout_height="@dimen/fifty_dp"
+                                android:layout_marginStart="@dimen/ten_dp"
+                                android:layout_marginLeft="@dimen/ten_dp"
+                                android:layout_marginTop="@dimen/five_dp"
+                                android:layout_marginEnd="@dimen/five_dp"
+                                android:layout_marginRight="@dimen/five_dp"
+                                android:layout_marginBottom="@dimen/five_dp"
+                                android:background="@drawable/rounded_txt"
+                                android:gravity="center"
+                                android:imeOptions="actionNext"
+                                android:inputType="number"
+                                android:maxLength="1" />
+
+                            <androidx.appcompat.widget.AppCompatEditText
+                                android:id="@+id/tv_otp5"
+                                android:layout_width="@dimen/fourty_dp"
+                                android:layout_height="@dimen/fifty_dp"
+                                android:layout_marginStart="@dimen/ten_dp"
+                                android:layout_marginLeft="@dimen/ten_dp"
+                                android:layout_marginTop="@dimen/five_dp"
+                                android:layout_marginEnd="@dimen/five_dp"
+                                android:layout_marginRight="@dimen/five_dp"
+                                android:layout_marginBottom="@dimen/five_dp"
+                                android:background="@drawable/rounded_txt"
+                                android:gravity="center"
+                                android:imeOptions="actionNext"
+                                android:inputType="number"
+                                android:maxLength="1" />
+
+                            <androidx.appcompat.widget.AppCompatEditText
+                                android:id="@+id/tv_otp6"
+                                android:layout_width="@dimen/fourty_dp"
+                                android:layout_height="@dimen/fifty_dp"
+                                android:layout_marginStart="@dimen/ten_dp"
+                                android:layout_marginLeft="@dimen/ten_dp"
+                                android:layout_marginTop="@dimen/five_dp"
+                                android:layout_marginEnd="@dimen/five_dp"
+                                android:layout_marginRight="@dimen/five_dp"
+                                android:layout_marginBottom="@dimen/five_dp"
+                                android:background="@drawable/rounded_txt"
+                                android:gravity="center"
+                                android:imeOptions="actionDone"
+                                android:inputType="number"
+                                android:maxLength="1" />
+                    </LinearLayout>-->
+
+
+                    <!--<TextView
+                        android:id="@+id/til_otp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="@{loginViewModel.otpError}"
+                        android:visibility="@{loginViewModel.otpError.empty?View.GONE:View.VISIBLE}"
+                        android:textColor="@color/colorLoginBg" />-->
+
+                    <!--android:enabled="@{loginViewModel.validOtp}"
+                    android:alpha="@{loginViewModel.validOtp?1.3f:0.3f}"-->
+
+                    <Button
+                        android:id="@+id/btn_verify_otp"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/btn_height"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/ten_dp"
+                        android:layout_marginBottom="@dimen/margin_small"
+                        android:background="@drawable/bg_send_otp_button"
+                        android:fontFamily="@font/nunitosans_bold"
+                        android:text="@string/verify_proceed"
+
+                        android:onClick="@{(view)->loginViewModel.checkOtpOnlick()}"
+                        android:textAllCaps="false"
+                        android:textColor="@color/color_white"
+                        android:textSize="@dimen/eighteen_sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/fourty_dp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/textView8"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0"
+                            android:fontFamily="@font/notosans_regular"
+                            android:text="@string/otp_msg"
+                            android:textSize="@dimen/twelve_sp" />
+
+                        <TextView
+                            android:id="@+id/btn_resend_otp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/five_dp"
+                            android:layout_weight="0"
+                            android:fontFamily="@font/nunitosans_semibold"
+                            android:text="@string/resend_otp"
+                            android:onClick="@{(view) -> loginViewModel.submitBtn()}"
+                            android:visibility="@{loginViewModel.tvResendVisible?View.VISIBLE:View.GONE}"
+                            android:textAllCaps="false"
+                            android:textColor="@color/blue"
+                            android:textSize="@dimen/twelve_sp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tv_resend_otp_timer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/margin_medium"
+                        android:fontFamily="@font/nunitosans_semibold"
+                        android:gravity="center_horizontal"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:text="@{loginViewModel.tvTimerText}"
+                        android:enabled="@{loginViewModel.tvResendVisible}"
+                        android:visibility="@{loginViewModel.tvResendVisible?View.GONE:View.VISIBLE}" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_medium"
+                    android:layout_marginLeft="@dimen/margin_medium"
+                    android:layout_marginTop="@dimen/twenty_five"
+                    android:layout_marginEnd="@dimen/margin_medium"
+                    android:layout_marginRight="@dimen/margin_medium"
+                    android:layout_marginBottom="@dimen/margin_medium"
+                    android:orientation="vertical"
+                    android:padding="@dimen/margin_high"
+                    android:visibility="@{loginViewModel.isVisibleSuccess()?loginViewModel.isVisible()?View.VISIBLE : View.GONE:loginViewModel.isVisible()?View.GONE : View.VISIBLE}">
+
+
+                    <!--android:background="@drawable/ic_launcher"-->
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/margin_medium"
+                        android:fontFamily="@font/nunitosans_bold"
+                        android:gravity="start"
+                        android:text="@string/sign_in"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size"
+                        android:textStyle="bold"
+                        android:visibility="visible" />
+
+
+                    <RelativeLayout
+                        android:id="@+id/rl_mobile"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/imv_mobile"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_centerVertical="true"
+                            android:layout_margin="@dimen/margin_medium"
+                            android:contentDescription="@string/mobile_number"
+                            android:src="@drawable/ic_login_phone"
+                            android:visibility="gone"
+                            app:tint="@color/color_button" />
+
+                        <ImageButton
+                            android:id="@+id/imb_clear_mobile_number"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:background="@color/white"
+                            android:contentDescription="@string/clear"
+                            android:onClick="@{(view) -> loginViewModel.onClickClearNumber()}"
+                            android:padding="@dimen/margin_medium"
+                            android:src="@drawable/ic_login_clear"
+                            android:tint="@color/color_button"
+                            android:visibility="@{loginViewModel.closeVisible?View.VISIBLE:View.GONE}" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/til_mobile_number"
+                            style="@style/Base.TextAppearance.AppCompat.Large"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignWithParentIfMissing="true"
+                            android:layout_toLeftOf="@id/imb_clear_mobile_number"
+                            android:layout_toRightOf="@id/imv_mobile"
+                            android:orientation="horizontal"
+                            app:errorEnabled="true">
+
+
+                            <EditText
+                                android:id="@+id/et_mobile_number"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:cursorVisible="@{loginViewModel.isCursorVisible()}"
+                                android:digits="0123456789"
+                                android:enabled="@{loginViewModel.isEditTextEnable()}"
+                                android:fontFamily="@font/nunitosans_semibold"
+                                android:hint="@string/mobile_number"
+                                android:imeOptions="actionDone"
+                                android:inputType="phone"
+                                android:maxLength="10"
+                                android:singleLine="true"
+                                android:text="@={loginViewModel.phoneNumber}"
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/black"
+                                android:textSize="@dimen/semi_large" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_otp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_vsmall"
+                        android:visibility="gone">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_margin="@dimen/margin_medium"
+                            android:contentDescription="@string/mobile_number"
+                            android:src="@drawable/ic_login_otp" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/til_otp2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:maxLength="6"
+                            android:textSize="@dimen/semi_large"
+                            app:errorEnabled="true">
+
+                            <EditText
+                                android:id="@+id/et_otp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:digits="0123456789"
+                                android:hint="@string/otp"
+                                android:imeOptions="actionNext"
+                                android:inputType="phone"
+                                android:maxLength="6"
+                                android:textSize="@dimen/semi_large" />
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/btn_send_otp"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/btn_height"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/margin_medium"
+                        android:layout_marginBottom="@dimen/margin_small"
+                        android:alpha="@{loginViewModel.valid ? 1.0f : 0.3f}"
+                        android:background="@drawable/bg_send_otp_button"
+                        android:enabled="@{loginViewModel.valid}"
+                        android:fontFamily="@font/nunitosans_bold"
+                        android:onClick="@{(view) -> loginViewModel.submitBtn()}"
+                        android:text="@string/get_otp"
+                        android:textAllCaps="false"
+                        android:textColor="@color/color_white"
+                        android:textSize="@dimen/text_size"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:id="@+id/ll_verify_otp_btns"
+                        style="?android:attr/buttonBarStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:visibility="gone">
+
+                        <Button
+                            android:id="@+id/btn_resend_otp2"
+                            style="?android:attr/buttonBarButtonStyle"
+                            android:layout_width="@dimen/onesixty_dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/margin_medium"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_resend_btn_opacity"
+                            android:padding="@dimen/padding_small"
+                            android:text="@string/resend_otp"
+                            android:textColor="@color/white" />
+
+                        <Button
+                            android:id="@+id/btn_verify_otp2"
+                            style="?android:attr/buttonBarButtonStyle"
+                            android:layout_width="@dimen/onesixty_dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/margin_medium"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_send_otp_button"
+                            android:padding="@dimen/padding_small"
+                            android:text="@string/verify_otp"
+                            android:textColor="@color/white" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tv_resend_otp_timer2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/margin_medium"
+                        android:gravity="center_horizontal"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+
+                </LinearLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/seventy_dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_gravity="center_horizontal|center_vertical"
+                        android:contentDescription="@string/appbar_scrolling_view_behavior"
+                        android:src="@drawable/ic_mm_logo" />
+                </RelativeLayout>
+            </LinearLayout>
+        </ScrollView>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="#B3ffffff"
+            android:visibility="@{loginViewModel.isLoading ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true" />
+
+        </RelativeLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>
